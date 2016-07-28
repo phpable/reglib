@@ -11,6 +11,11 @@ class Reglib {
 	/**
 	 * @const string
 	 */
+	const VAR = '[A-Za-z_][A-Za-z0-9_]*';
+
+	/**
+	 * @const string
+	 */
 	const QUOTED = '(?:\'(?:\\\\\'|[^\'])*\'|"(?:\\\\"|[^"])*")';
 
 }

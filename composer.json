@@ -1,6 +1,6 @@
 {
 	"name": "eggbe/reglib",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"type": "library",
 	"keywords": ["regular", "expressions"],
 	"description": "Prepared regular expressions library",
