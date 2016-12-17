@@ -18,4 +18,9 @@ class Reglib {
 	 */
 	const QUOTED = '(?:\'(?:\\\\\'|[^\'])*\'|"(?:\\\\"|[^"])*")';
 
+	/**
+	 * @const string
+	 */
+	const PARAMS = '(' . self::QUOTED . '|[^,]+)';
+
 }
