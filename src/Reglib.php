@@ -16,7 +16,7 @@ class Reglib {
 	/**
 	 * @const string
 	 */
-	const NAMESPACE = '(' . self::VAR . '\\\+)+';
+	const NAMESPACE = '(' . self::VAR . '\\\\*)+';
 
 	/**
 	 * @const string
