@@ -16,6 +16,11 @@ class Reglib {
 	/**
 	 * @const string
 	 */
+	const KEYWORD = '[A-Za-z][A-Za-z0-9]*';
+
+	/**
+	 * @const string
+	 */
 	const NAMESPACE = '(' . self::VAR . '\\\\*)+';
 
 	/**
