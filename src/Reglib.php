@@ -1,8 +1,8 @@
 <?php
 namespace Eggbe\Reglib;
 
-use \Eggbe\Prototype\TUnclonable;
-use \Eggbe\Prototype\TUncreatable;
+use \Able\Prototypes\TUnclonable;
+use \Able\Prototypes\TUncreatable;
 
 class Reglib {
 	use TUnclonable;

@@ -12,12 +12,17 @@
 		}
 	],
 	"require": {
-		"php": ">=7.0.0",
-		"eggbe/prototype": "dev-master"
+		"php": ">=7.1.0",
+		"able/prototypes": "dev-master"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^7"
 	},
 	"autoload": {
 		"psr-4": {
 			"Eggbe\\Reglib\\": "src/"
 		}
-	}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }
