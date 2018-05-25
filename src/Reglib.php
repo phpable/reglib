@@ -1,5 +1,5 @@
 <?php
-namespace Eggbe\Reglib;
+namespace Able\Reglib;
 
 use \Able\Prototypes\TUnclonable;
 use \Able\Prototypes\TUncreatable;

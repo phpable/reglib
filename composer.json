@@ -1,9 +1,9 @@
 {
 	"name": "eggbe/reglib",
-	"version": "0.1.4",
+	"version": "1.0",
 	"type": "library",
-	"keywords": ["regular", "expressions", "templates"],
-	"description": "Regular expressions templates library.s",
+	"keywords": ["phpable", "regular", "expressions"],
+	"description": "phpABLE regular expressions library",
 	"license": "MIT",
 	"authors": [
 		{
@@ -12,15 +12,12 @@
 		}
 	],
 	"require": {
-		"php": ">=7.1.0",
+		"php": ">=7.2.0",
 		"able/prototypes": "dev-master"
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^7"
 	},
 	"autoload": {
 		"psr-4": {
-			"Eggbe\\Reglib\\": "src/"
+			"Able\\Reglib\\": "src/"
 		}
 	},
 	"minimum-stability": "dev",
