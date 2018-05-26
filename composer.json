@@ -1,5 +1,5 @@
 {
-	"name": "eggbe/reglib",
+	"name": "able/reglib",
 	"version": "1.0",
 	"type": "library",
 	"keywords": ["phpable", "regular", "expressions"],
