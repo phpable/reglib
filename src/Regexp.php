@@ -63,7 +63,7 @@ class Regexp {
 				$line  = substr($source, $offset, $Matches[0][1] - $offset);
 				$offset = $Matches[0][1] + strlen($Matches[0][0]);
 
-			yield $line;
+			yield $line . $Matches[0][0];
 		}
 
 		if ($offset < strlen($source)){
