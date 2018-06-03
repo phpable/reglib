@@ -52,6 +52,14 @@ class Regexp {
 
 	/**
 	 * @param string $source
+	 * @return string
+	 */
+	public final function erase(string $source): string {
+		return preg_replace($this->pattern, '', $source);
+	}
+
+	/**
+	 * @param string $source
 	 * @return \Generator
 	 */
 	public final function split(string $source): \Generator {
