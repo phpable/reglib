@@ -22,6 +22,23 @@ class Regexp {
 	}
 
 	/**
+	 * @var array
+	 */
+	protected static $Cache = [];
+
+	/**
+	 * @param string $pannern
+	 * @return Regexp
+	 */
+	public final static function create(string $pannern) {
+		if (!isset(self::$Cache[$key = get_called_class() . trim($pannern)])){
+			self::$Cache[$key] = new static($pannern);
+		}
+
+		return self::$Cache[$key];
+	}
+
+	/**
 	 * @param string $source
 	 * @param int $position
 	 * @return string
