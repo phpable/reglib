@@ -44,8 +44,17 @@ class Regexp {
 	 * @return string
 	 */
 	public final function take(string $source, int $position = 0): string {
-		return preg_match($this->pattern, $source, $Matches) !== false
+		return preg_match($this->pattern, $source, $Matches)
 			&& isset($Matches[$position]) ? $Matches[$position] : '';
+	}
+
+	/**
+	 * @param string $source
+	 * @return string
+	 */
+	public final function retrieve(string &$source): string {
+		$source = substr($source, strlen($out = self::take($source)));
+		return $out;
 	}
 
 	/**
