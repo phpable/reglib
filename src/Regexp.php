@@ -1,6 +1,8 @@
 <?php
 namespace Able\Reglib;
 
+use \Able\Helpers\Arr;
+
 class Regexp {
 
 	/**
@@ -29,6 +31,7 @@ class Regexp {
 	/**
 	 * @param string $pannern
 	 * @return Regexp
+	 * @throws \Exception
 	 */
 	public final static function create(string $pannern) {
 		if (!isset(self::$Cache[$key = get_called_class() . trim($pannern)])){
@@ -59,10 +62,18 @@ class Regexp {
 
 	/**
 	 * @param string $source
+	 * @return array|null
+	 */
+	public final function match(string $source): ?array {
+		return preg_match($this->pattern, $source, $Matches) > 0 ? $Matches : null;
+	}
+
+	/**
+	 * @param string $source
 	 * @return bool
 	 */
 	public final function check(string $source): bool {
-		return preg_match($this->pattern, $source) > 0;
+		return !empty($this->match($source));
 	}
 
 	/**
@@ -103,5 +114,13 @@ class Regexp {
 		if ($offset < strlen($source)){
 			yield substr($source, $offset);
 		}
+	}
+
+	/**
+	 * @param string $source
+	 * @return array
+	 */
+	public final function exec(string $source): array {
+		return Arr::combine(array_slice(func_get_args(), 1), array_slice($this->match($source), 1));
 	}
 }
