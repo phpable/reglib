@@ -121,6 +121,6 @@ class Regexp {
 	 * @return array
 	 */
 	public final function exec(string $source): array {
-		return Arr::combine(array_slice(func_get_args(), 1), array_slice((array)$this->match($source), 1), '');
+		return Arr::combine(array_slice(func_get_args(), 1), array_slice((array)$this->match($source), 1));
 	}
 }
