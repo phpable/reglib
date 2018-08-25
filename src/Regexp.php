@@ -104,11 +104,9 @@ class Regexp {
 
 		while(preg_match($this->pattern, $source,
 			$Matches, PREG_OFFSET_CAPTURE, $offset) > 0){
+				yield substr($source, $offset, $Matches[0][1] - $offset);
 
-				$line  = substr($source, $offset, $Matches[0][1] - $offset);
 				$offset = $Matches[0][1] + strlen($Matches[0][0]);
-
-			yield $line . $Matches[0][0];
 		}
 
 		if ($offset < strlen($source)){
