@@ -4,7 +4,7 @@ in php including the most popular prepared templates.
 
 
 ## Requirements
-* PHP >= 7.2.0
+* PHP >= 7.4.0
 * [Able/Helpers](https://github.com/phpable/helpers)
 
 ## Install
