@@ -2,6 +2,7 @@
 namespace Able\Reglib;
 
 use \Able\Helpers\Arr;
+use \Exception;
 
 class Regex {
 
@@ -13,7 +14,7 @@ class Regex {
 	/**
 	 * @param string $source
 	 * @return bool
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public static final function checkVariable(string $source): bool {
 		return self::create('/^' . self::RE_VARIABLE . '$/')->check($source);
@@ -27,7 +28,7 @@ class Regex {
 	/**
 	 * @param string $source
 	 * @return bool
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public static final function checkNamespace(string $source): bool {
 		return self::create('/^' . self::RE_NAMESPACE . '$/')->check($source);
@@ -41,7 +42,7 @@ class Regex {
 	/**
 	 * @param string $source
 	 * @return bool
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public static final function checkNumber(string $source): bool {
 		return self::create('/^' . self::RE_NUMBER . '$/')->check($source);
@@ -69,11 +70,11 @@ class Regex {
 
 	/**
 	 * @param string $pattern
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public final function __construct(string $pattern) {
 		if (@preg_match($pattern, null) === false){
-			throw new \Exception(preg_replace('/^[^:]+:\s*/', '', error_get_last()['message']));
+			throw new Exception(preg_replace('/^[^:]+:\s*/', '', error_get_last()['message']));
 		}
 
 		$this->pattern = $pattern;
@@ -87,7 +88,7 @@ class Regex {
 	/**
 	 * @param string $pattern
 	 * @return Regex
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public final static function create(string $pattern): Regex {
 		if (!isset(self::$Cache[$key = get_called_class() . trim($pattern)])){
