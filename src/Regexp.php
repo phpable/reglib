@@ -53,10 +53,12 @@ class Regexp {
 
 	/**
 	 * @param string $source
+	 * @param int $position
 	 * @return string
 	 */
-	public final function retrieve(string &$source): string {
-		$source = substr($source, strlen($out = self::take($source)));
+	public final function retrieve(string &$source, int $position = 0): string {
+		$out = self::take($source, $position);
+		$source = $this->erase($source);
 		return $out;
 	}
 
