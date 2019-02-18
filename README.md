@@ -5,6 +5,8 @@ in php including the most popular prepared templates.
 
 ## Requirements
 * PHP >= 7.2.0
+* [Able/Statics](https://github.com/phpable/statics)
+* [Able/Helpers](https://github.com/phpable/helpers)
 
 ## Install
 Here's the simpler way to install the Able/Reglib package via [composer](http://getcomposer.org):
@@ -33,12 +35,6 @@ echo $Regexp->take('winter is coming'));
 
 //> winter
 ```
-
-## Authors
-Made with love at [Eggbe](http://eggbe.com).
-
-## Feedback 
-We always welcome your feedback at [github@eggbe.com](mailto:github@eggbe.com).
 
 ## License
 This package is released under the [MIT license](https://github.com/phpable/reglib/blob/master/LICENSE).

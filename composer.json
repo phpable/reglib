@@ -1,6 +1,6 @@
 {
 	"name": "able/reglib",
-	"version": "1.0",
+	"version": "1.2",
 	"type": "library",
 	"keywords": ["phpable", "regular", "expressions"],
 	"description": "phpABLE regular expressions library",
@@ -13,6 +13,7 @@
 	],
 	"require": {
 		"php": ">=7.2.0",
+		"able/statics": "dev-master",
 		"able/helpers": "dev-master"
 	},
 	"require-dev": {
