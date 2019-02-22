@@ -2,7 +2,7 @@
 namespace Able\Reglib\Tests;
 
 use \PHPUnit\Framework\TestCase;
-use \Able\Reglib\Regexp;
+use \Able\Reglib\Regex;
 
 class MainTest extends TestCase {
 
@@ -10,12 +10,12 @@ class MainTest extends TestCase {
 	 * @throws \Exception
 	 */
 	public final function testReplace() {
-		$Regexp = new Regexp('/test/');
+		$Regex = new Regex('/test/');
 
-		$this->assertEquals($Regexp->replace('test_string_of_test',
+		$this->assertEquals($Regex->replace('test_string_of_test',
 			'real'), 'real_string_of_real');
 
-		$this->assertEquals($Regexp->replace('test_string_of_test',
+		$this->assertEquals($Regex->replace('test_string_of_test',
 			'real', 1), 'real_string_of_test');
 	}
 
@@ -23,22 +23,22 @@ class MainTest extends TestCase {
 	 * @throws \Exception
 	 */
 	public final function testTake() {
-		$Regexp = new Regexp('/^test(?:_(string))(?:_(of))/');
+		$Regex = new Regex('/^test(?:_(string))(?:_(of))/');
 
-		$this->assertEquals($Regexp->take('test_string_of_test'), 'test_string_of');
+		$this->assertEquals($Regex->take('test_string_of_test'), 'test_string_of');
 
-		$this->assertEquals($Regexp->take('test_string_of_test', 1), 'string');
-		$this->assertEquals($Regexp->take('test_string_of_test', 2), 'of');
+		$this->assertEquals($Regex->take('test_string_of_test', 1), 'string');
+		$this->assertEquals($Regex->take('test_string_of_test', 2), 'of');
 	}
 
 	/**
 	 * @throws \Exception
 	 */
 	public final function testCheck() {
-		$Regexp = new Regexp('/^test[A-Za-z_]+of\w+$/');
+		$Regex = new Regex('/^test[A-Za-z_]+of\w+$/');
 
-		$this->assertTrue($Regexp->check('test_string_of_test'));
-		$this->assertFalse($Regexp->check('test_string_of_!test'));
+		$this->assertTrue($Regex->check('test_string_of_test'));
+		$this->assertFalse($Regex->check('test_string_of_!test'));
 
 	}
 }

@@ -3,7 +3,50 @@ namespace Able\Reglib;
 
 use \Able\Helpers\Arr;
 
-class Regexp {
+class Regex {
+
+	/**
+	 * @const string
+	 */
+	public const RE_VARIABLE = '[A-Za-z_][A-Za-z0-9_]*';
+
+	/**
+	 * @param string $source
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public static final function checkVariable(string $source): bool {
+		return self::create('/^' . self::RE_VARIABLE . '$/')->check($source);
+	}
+
+	/**
+	 * @const string
+	 */
+	const RE_NAMESPACE = '(' . self::RE_VARIABLE . '\\\\*)+';
+
+	/**
+	 * @param string $source
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public static final function checkNamespace(string $source): bool {
+		return self::create('/^' . self::RE_NAMESPACE . '$/')->check($source);
+	}
+
+	/**
+	 * @const string
+	 */
+	const RE_KEYWORD = '[A-Za-z][A-Za-z0-9]*';
+
+	/**
+	 * @const string
+	 */
+	const RE_QUOTED = '(?:\'(?:\\\\\'|[^\'])*\'|"(?:\\\\"|[^"])*")';
+
+	/**
+	 * @const string
+	 */
+	const RE_PARAMS = '(' . self::RE_QUOTED . '|[^,]+)';
 
 	/**
 	 * @var null
@@ -11,11 +54,10 @@ class Regexp {
 	private $pattern = null;
 
 	/**
-	 * Regexp constructor.
 	 * @param string $pattern
 	 * @throws \Exception
 	 */
-	public final function __construct(string $pattern){
+	public final function __construct(string $pattern) {
 		if (@preg_match($pattern, null) === false){
 			throw new \Exception(preg_replace('/^[^:]+:\s*/', '', error_get_last()['message']));
 		}
@@ -29,13 +71,13 @@ class Regexp {
 	protected static $Cache = [];
 
 	/**
-	 * @param string $pannern
-	 * @return Regexp
+	 * @param string $pattern
+	 * @return Regex
 	 * @throws \Exception
 	 */
-	public final static function create(string $pannern) {
-		if (!isset(self::$Cache[$key = get_called_class() . trim($pannern)])){
-			self::$Cache[$key] = new static($pannern);
+	public final static function create(string $pattern): Regex {
+		if (!isset(self::$Cache[$key = get_called_class() . trim($pattern)])){
+			self::$Cache[$key] = new static($pattern);
 		}
 
 		return self::$Cache[$key];
@@ -84,7 +126,7 @@ class Regexp {
 	 * @param int $limit
 	 * @return string
 	 */
-	public final function replace(string $source, $replacement, int $limit = -1): string{
+	public final function replace(string $source, $replacement, int $limit = -1): string {
 		return is_callable($replacement) ? preg_replace_callback('', $replacement,
 			$source, $limit) : preg_replace($this->pattern, $replacement, $source, $limit);
 	}
@@ -120,7 +162,7 @@ class Regexp {
 	 * @param string $source
 	 * @return array
 	 */
-	public final function exec(string $source): array {
+	public final function parse(string $source): array {
 		return Arr::combine(array_slice(func_get_args(), 1), array_slice((array)$this->match($source), 1));
 	}
 }

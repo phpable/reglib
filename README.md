@@ -5,7 +5,6 @@ in php including the most popular prepared templates.
 
 ## Requirements
 * PHP >= 7.2.0
-* [Able/Statics](https://github.com/phpable/statics)
 * [Able/Helpers](https://github.com/phpable/helpers)
 
 ## Install
@@ -20,8 +19,8 @@ Now you can use library features anywhere in the code:
 
 ```php
 use \Able\Reglib;
-$Regexp = new Regexp('/vendor/');
-echo $Regexp->replace('vendor/reglib', 'able'));
+$Regex = new Regex('/vendor/');
+echo $Regex->replace('vendor/reglib', 'able'));
 
 //> able/reglib
 ```
@@ -30,8 +29,8 @@ Or
 
 ```php
 use \Able\Reglib;
-$Regexp = new Regexp('/^[A-Za-z]+/');
-echo $Regexp->take('winter is coming'));
+$Regex = new Regex('/^[A-Za-z]+/');
+echo $Regex->take('winter is coming'));
 
 //> winter
 ```
