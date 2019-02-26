@@ -36,6 +36,20 @@ class Regex {
 	/**
 	 * @const string
 	 */
+	const RE_NUMBER = '[-+]?[0-9]+\.?[0-9]*';
+
+	/**
+	 * @param string $source
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public static final function checkNumber(string $source): bool {
+		return self::create('/^' . self::RE_NUMBER . '$/')->check($source);
+	}
+
+	/**
+	 * @const string
+	 */
 	const RE_KEYWORD = '[A-Za-z][A-Za-z0-9]*';
 
 	/**
